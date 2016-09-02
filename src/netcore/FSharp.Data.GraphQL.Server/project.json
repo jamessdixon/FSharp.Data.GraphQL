@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "buildOptions": {
+    "compilerName": "fsc",
+    "debugType": "portable",
+    "emitEntryPoint": false,
+    "compile": {
+      "includeFiles": [
+        "../../FSharp.Data.GraphQL.Server/ReflectionHelper.fs",
+        "../../FSharp.Data.GraphQL.Server/Values.fs",
+        "../../FSharp.Data.GraphQL.Server/Planning.fs",
+        "../../FSharp.Data.GraphQL.Server/Execution.fs",
+        "../../FSharp.Data.GraphQL.Server/Schema.fs",
+        "../../FSharp.Data.GraphQL.Server/Linq.fs",
+        "../../FSharp.Data.GraphQL.Server/Relay/Node.fs",
+        "../../FSharp.Data.GraphQL.Server/Relay/Connections.fs"     
+      ]
+    },
+    "define": [
+      "DOTNETCORE",
+      "TRACE"
+    ],
+    "nowarn": [
+      "44",
+      "2003"
+    ],
+    "xmlDoc": true,
+    "delaySign": true,
+    "warningsAsErrors": false,
+    "additionalArguments": [
+      "--fullpaths",
+      "--flaterrors"
+    ]
+  },
+ "dependencies":{
+    "FSharp.Data.GraphQL.Shared": {
+      "version": "1.0.0-*",
+      "target": "project"
+    }
+  },
+  "tools": {
+    "dotnet-compile-fsc": {
+      "version": "1.0.0-preview2-*",
+      "imports": "dnxcore50"
+    }
+  },
+  "frameworks": {
+    "netstandard1.6": {
+        "imports": [ "portable-net45+netcore45+wpa81+wp8", "portable-net45+win8" ],
+        "dependencies" : {
+            "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-*",
+            "System.Reflection.TypeExtensions": "4.1.0-rc2-24027",
+            "FSharp.Quotations.Evaluator": "1.0.7"
+        }
+    },
+    "net45" : {
+        "dependencies" : {
+            "FSharp.Quotations.Evaluator": "1.0.7",
+            "FSharp.Core": "4.0.0.1"
+        }
+    }
+  }
+}

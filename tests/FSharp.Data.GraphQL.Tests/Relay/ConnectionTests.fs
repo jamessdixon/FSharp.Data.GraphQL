@@ -6,6 +6,7 @@ module FSharp.Data.GraphQL.Tests.Relay.ConnectionTests
 #nowarn "25"
 
 open System
+open FSharp.Collections
 open FSharp.Data.GraphQL
 open FSharp.Data.GraphQL.Types
 open FSharp.Data.GraphQL.Relay

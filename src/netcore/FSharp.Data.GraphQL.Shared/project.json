@@ -9,6 +9,7 @@
         "../../FSharp.Data.GraphQL.Shared/Extensions.fs",
         "../../FSharp.Data.GraphQL.Shared/Prolog.fs",
         "../../FSharp.Data.GraphQL.Shared/Ast.fs",
+        "../../FSharp.Data.GraphQL.Shared/AsyncVal.fs",
         "../../FSharp.Data.GraphQL.Shared/TypeSystem.fs",
         "../../FSharp.Data.GraphQL.Shared/Validation.fs",
         "../../FSharp.Data.GraphQL.Shared/Introspection.fs",
@@ -32,7 +33,6 @@
     ]
   },
   "dependencies": {
-    "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-*",
     "FParsec": "1.0.2"
   },
   "tools": {
@@ -43,7 +43,15 @@
   },
   "frameworks": {
     "netstandard1.6": {
-        "imports": "portable-net45+netcore45+wpa81+wp8"
+        "imports": "portable-net45+netcore45+wpa81+wp8",
+        "dependencies": {
+             "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-*"
+        }
+    },
+    "net45" : {
+      "dependencies": {
+        "FSharp.Core" : "*"
+      }
     }
   }
 }

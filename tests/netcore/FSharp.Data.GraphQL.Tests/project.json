@@ -1,0 +1,56 @@
+{
+    "version": "1.0.0-*",
+    "testRunner": "xunit",
+    "dependencies": {
+        "xunit": "2.2.0-beta2-build3300",
+        "dotnet-test-xunit": "2.2.0-preview2-build1029",
+        "FsCheck":"2.6.0"
+     },
+    "buildOptions": {
+    "emitEntryPoint": true,
+    "compilerName": "fsc",
+    "compile": {
+      "includeFiles": [
+               "../../FSharp.Data.GraphQL.Tests/Helpers.fs",
+               "../../FSharp.Data.GraphQL.Tests/AsyncValTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/Relay/NodeTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/Relay/ConnectionTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/Relay/MutationTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/AbstractionTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/DirectivesTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/ValidationTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/ParserTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/SchemaTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/CoercionTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/IntrospectionTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/ReflectedSchemaTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/ExecutionTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/MutationTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/ResolveTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/UnionInterfaceTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/VariablesTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/PlanningTests.fs",
+               "../../FSharp.Data.GraphQL.Tests/LinqTests.fs"
+               ]
+    }
+  },
+  "tools": {
+    "dotnet-compile-fsc":"1.0.0-preview2-*"
+  },
+    "frameworks": {
+        "netcoreapp1.0": {
+            "imports": ["portable-net45+netcore45+wpa81+wp8", "portable-net45+win8"],
+            "dependencies": {
+                "Microsoft.NETCore.App": {
+                    "type": "platform",
+                    "version": "1.0.0"
+                },
+                "Microsoft.FSharp.Core.netcore": "1.0.0-*",
+                "FsCheck":"2.6.0",
+                "FSharp.Data.GraphQL.Shared": "*",
+                "FSharp.Data.GraphQL.Server": "*",
+                "FSharp.Data.GraphQL.Client": "*"
+            }
+        }
+    }
+}

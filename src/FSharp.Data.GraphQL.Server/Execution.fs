@@ -8,6 +8,8 @@ open System.Reflection
 open System.Runtime.InteropServices;
 open System.Collections.Generic
 open System.Collections.Concurrent
+open FSharp.Reflection
+open FSharp.Reflection.FSharpReflectionExtensions
 open FSharp.Data.GraphQL.Ast
 open FSharp.Data.GraphQL.Types
 open FSharp.Data.GraphQL.Types.Patterns
@@ -252,7 +254,11 @@ let rec private createCompletion (possibleTypesFn: TypeDef -> ObjectDef []) (ret
         fun ctx value ->
             let t = value.GetType()
             if value = null then AsyncVal.empty
+#if NETSTANDARD1_6           
+            elif t.GetTypeInfo().IsGenericType && t.GetTypeInfo().GetGenericTypeDefinition() = optionDef then
+#else       
             elif t.IsGenericType && t.GetGenericTypeDefinition() = optionDef then
+#endif               
                 let _, fields = Microsoft.FSharp.Reflection.FSharpValue.GetUnionFields(value, t)
                 innerfn ctx fields.[0]
             else innerfn ctx value

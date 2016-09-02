@@ -41,14 +41,22 @@ module internal Gen =
         if t = tArray then Some typeParam
         else None
 
-    let (|Enumerable|_|) t =
+    let (|Enumerable|_|) (t: Type) =
         if typeof<System.Collections.IEnumerable>.IsAssignableFrom t 
+#if NETSTANDARD1_6        
+        then Some (Enumerable (t.GetTypeInfo().GetInterface("IEnumerable`1").GetGenericArguments().[0]))
+#else 
         then Some (Enumerable (t.GetInterface("IEnumerable`1").GetGenericArguments().[0]))
+#endif
         else None
 
-    let (|Queryable|_|) t =
+    let (|Queryable|_|) (t: Type) =
         if typeof<IQueryable>.IsAssignableFrom t 
+#if NETSTANDARD1_6        
+        then Some (Queryable (t.GetTypeInfo().GetInterface("IQueryable`1").GetGenericArguments().[0]))
+#else 
         then Some (Queryable (t.GetInterface("IQueryable`1").GetGenericArguments().[0]))
+#endif        
         else None
 
     let genericType<'t> typeParams = typedefof<'t>.MakeGenericType typeParams
