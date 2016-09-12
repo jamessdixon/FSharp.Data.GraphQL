@@ -46,7 +46,7 @@
   },
   "frameworks": {
     "netstandard1.6": {
-        "imports": [ "portable-net45+netcore45+wpa81+wp8", "portable-net45+win8" ],
+        "imports": "portable-net45+netcore45",
         "dependencies" : {
             "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-*",
             "System.Reflection.TypeExtensions": "4.1.0-rc2-24027",

@@ -16,6 +16,7 @@ open FSharp.Data.GraphQL.Types.Patterns
 open FSharp.Data.GraphQL.Planning
 open FSharp.Data.GraphQL.Types.Introspection
 open FSharp.Data.GraphQL.Introspection
+open FSharp.Quotations.Patterns
 
 /// Name value lookup used as output to be serialized into JSON.
 /// It has a form of a dictionary with fixed set of keys. Values under keys
@@ -311,7 +312,6 @@ and internal compileField possibleTypesFn (fieldDef: FieldDef) : ExecuteField =
             | ex -> 
                 resolveFieldCtx.AddError ex
                 AsyncVal.empty
-
     | Resolve.BoxedAsync(inType, outType, resolve) ->
         fun resolveFieldCtx value -> 
             try
@@ -325,7 +325,6 @@ and internal compileField possibleTypesFn (fieldDef: FieldDef) : ExecuteField =
             | ex -> 
                 resolveFieldCtx.AddError(ex)
                 AsyncVal.empty
-
     | Undefined -> 
         fun _ _ -> raise (InvalidOperationException(sprintf "Field '%s' has been accessed, but no resolve function for that field definition was provided. Make sure, you've specified resolve function or declared field with Define.AutoField method" fieldDef.Name))
 

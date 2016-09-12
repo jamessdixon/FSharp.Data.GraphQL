@@ -6,19 +6,22 @@
     "emitEntryPoint": false,
     "compile": {
       "includeFiles": [
-        "../../FSharp.Data.GraphQL.Shared/Extensions.fs",
-        "../../FSharp.Data.GraphQL.Shared/Prolog.fs",
-        "../../FSharp.Data.GraphQL.Shared/Ast.fs",
-        "../../FSharp.Data.GraphQL.Shared/AsyncVal.fs",
-        "../../FSharp.Data.GraphQL.Shared/TypeSystem.fs",
-        "../../FSharp.Data.GraphQL.Shared/Validation.fs",
-        "../../FSharp.Data.GraphQL.Shared/Introspection.fs",
-        "../../FSharp.Data.GraphQL.Shared/Parser.fs"
+        "../../FSharp.Data.GraphQL.Client/ProvidedTypes.fsi",
+        "../../FSharp.Data.GraphQL.Client/ProvidedTypes.fs",
+        "../../FSharp.Data.GraphQL.Client/Serialization.fs",
+        "../../FSharp.Data.GraphQL.Client/QuotationHelpers.fs",
+        "../../FSharp.Data.GraphQL.Client/IntrospectionParser.fs",
+        "../../FSharp.Data.GraphQL.Client/GraphQlProvider.fs",
+        "../../FSharp.Data.GraphQL.Client/QueryDSL.fs"
       ]
     },
     "define": [
       "DOTNETCORE",
-      "TRACE"
+      "TRACE",
+      "NO_GENERATIVE",
+      "FX_NO_LOCAL_FILESYSTEM",
+      "FX_NO_CUSTOMATTRIBUTEDATA",
+      "FX_NO_GET_ENUM_UNDERLYING_TYPE"
     ],
     "nowarn": [
       "44",
@@ -33,7 +36,12 @@
     ]
   },
   "dependencies": {
-    "FParsec": "1.0.2"
+    "System.Reflection.TypeExtensions": "4.1.0",
+    "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-*",
+    "FSharp.Data.GraphQL.Shared": {
+      "version": "1.0.0-*",
+      "target": "project"
+    }
   },
   "tools": {
     "dotnet-compile-fsc": {
@@ -43,15 +51,7 @@
   },
   "frameworks": {
     "netstandard1.6": {
-        "imports": "portable-net45+netcore45+wpa81+wp8",
-        "dependencies": {
-             "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-*"
-        }
-    },
-    "net45" : {
-      "dependencies": {
-        "FSharp.Core" : "4.0.0.1"
-      }
-    }
+      "imports": "portable-net45+netcore45"
+    }        
   }
 }

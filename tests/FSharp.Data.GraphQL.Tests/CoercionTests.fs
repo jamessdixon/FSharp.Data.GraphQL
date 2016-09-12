@@ -8,7 +8,7 @@ module FSharp.Data.GraphQL.Tests.CoercionTests
 
 open System
 open Xunit
-open FsCheck
+
 open FSharp.Data.GraphQL.Ast
 open FSharp.Data.GraphQL.Types
 open FSharp.Data.GraphQL.Types.Patterns

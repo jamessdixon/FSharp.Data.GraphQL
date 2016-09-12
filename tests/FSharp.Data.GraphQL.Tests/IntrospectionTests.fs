@@ -7,11 +7,13 @@ module FSharp.Data.GraphQL.Tests.IntrospectionTests
 
 open System
 open Xunit
-open FsCheck
+
 open FSharp.Data.GraphQL
 open FSharp.Data.GraphQL.Types
 open FSharp.Data.GraphQL.Parser
 open FSharp.Data.GraphQL.Execution
+#if DOTNETCORE
+#elif
 open FSharp.Data.GraphQL.Client
 
 [<Fact(Skip="FIXME: investigate reason of failure")>]
@@ -22,6 +24,7 @@ let ``Introspection schema should be serializable back and forth using json`` ()
     let json = Client.Serialization.toJson introResult
     let deserialized = Client.Serialization.fromJson json
     deserialized.Data.__schema |> equals (schema :> ISchema).Introspected
+#endif
 
 [<Fact>]
 let ``Core type definitions are considered nullable`` () =
