@@ -16,6 +16,7 @@ open FSharp.Data.GraphQL.Types.Patterns
 open FSharp.Data.GraphQL.Planning
 open FSharp.Data.GraphQL.Types.Introspection
 open FSharp.Data.GraphQL.Introspection
+open FSharp.Quotations.Expr
 open FSharp.Quotations.Patterns
 
 /// Name value lookup used as output to be serialized into JSON.
