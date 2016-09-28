@@ -49,14 +49,12 @@
         "imports": "portable-net45+netcore45",
         "dependencies" : {
             "Microsoft.FSharp.Core.netcore": "1.0.0-alpha-*",
-            "System.Reflection.TypeExtensions": "4.1.0-rc2-24027",
-            "FSharp.Quotations.Evaluator": "1.0.7"
+            "System.Reflection.TypeExtensions": "4.1.0-rc2-24027"
         }
     },
     "net45" : {
         "dependencies" : {
-            "FSharp.Quotations.Evaluator": "1.0.7",
-            "FSharp.Core": "4.0.0.1"
+             "FSharp.Core": "4.0.0.1"
         }
     }
   }

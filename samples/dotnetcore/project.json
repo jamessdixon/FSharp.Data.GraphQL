@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "compilerName": "fsc",
+    "compile": {
+      "includeFiles": [
+        "Program.fs"
+      ]
+    }
+  },
+  "tools": {
+    "dotnet-compile-fsc":"1.0.0-preview2-*"
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": ["portable-net45+netcore45+wpa81+wp8", "portable-net45+win8"],
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.0"
+        },
+        "Microsoft.FSharp.Core.netcore": "1.0.0-*",
+        "Suave":"2.0.0-alpha4",
+        "FSharp.Data.GraphQL.Server": "*",
+        "Newtonsoft.Json":"9.0.1",
+        "System.Text.Encoding": "4.0.11"
+      }
+    }
+  }
+}
