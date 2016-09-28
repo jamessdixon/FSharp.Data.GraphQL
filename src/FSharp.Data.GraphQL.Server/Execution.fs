@@ -16,7 +16,7 @@ open FSharp.Data.GraphQL.Types.Patterns
 open FSharp.Data.GraphQL.Planning
 open FSharp.Data.GraphQL.Types.Introspection
 open FSharp.Data.GraphQL.Introspection
-open FSharp.Quotations.Expr
+open FSharp.Quotations
 open FSharp.Quotations.Patterns
 
 /// Name value lookup used as output to be serialized into JSON.
@@ -388,8 +388,8 @@ let internal executePlan (ctx: ExecutionContext) (plan: ExecutionPlan) (objdef: 
             |> AsyncVal.map (fun r -> KeyValuePair<_,_>(name, r))
             |> AsyncVal.rescue (fun e -> fieldCtx.AddError e; KeyValuePair<_,_>(name, null)))
     match plan.Strategy with
-    | Parallel -> AsyncVal.collectParallel results
-    | Sequential   -> AsyncVal.collectSequential results
+    | ExecutionStrategy.Parallel -> AsyncVal.collectParallel results
+    | ExecutionStrategy.Sequential   -> AsyncVal.collectSequential results
 
 let private compileInputObject (indef: InputObjectDef) =
     indef.Fields
