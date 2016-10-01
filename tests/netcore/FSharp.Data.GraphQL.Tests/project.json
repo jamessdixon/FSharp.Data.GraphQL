@@ -8,8 +8,7 @@
     "compile": {
       "includeFiles": [
        "../../FSharp.Data.GraphQL.Tests/Helpers.fs",
-        "../../FSharp.Data.GraphQL.Tests/AsyncValTests.fs",
-        "../../FSharp.Data.GraphQL.Tests/Relay/NodeTests.fs",
+       "../../FSharp.Data.GraphQL.Tests/Relay/NodeTests.fs",
         "../../FSharp.Data.GraphQL.Tests/Relay/ConnectionTests.fs",
         "../../FSharp.Data.GraphQL.Tests/Relay/MutationTests.fs",
         "../../FSharp.Data.GraphQL.Tests/AbstractionTests.fs",
@@ -26,7 +25,8 @@
         "../../FSharp.Data.GraphQL.Tests/UnionInterfaceTests.fs",
         "../../FSharp.Data.GraphQL.Tests/VariablesTests.fs",
         "../../FSharp.Data.GraphQL.Tests/PlanningTests.fs",
-        "../../FSharp.Data.GraphQL.Tests/LinqTests.fs"
+        "../../FSharp.Data.GraphQL.Tests/LinqTests.fs",
+        "../../FSharp.Data.GraphQL.Tests/AsyncValTests.fs"
       ]
     }
   },
